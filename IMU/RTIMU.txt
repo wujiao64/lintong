@@ -1,0 +1,6 @@
+sudo update 
+sudo apt install libjpeg-dev libatlas-base-dev python3-rtimulib
+
+En dan linken we de zojuist geïnstalleerde RTIMU aan de omgeving van Home Assistant:
+
+sudo ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-37m-arm-linux-gnueabihf.so /srv/homeassistant/lib/python3.7/site-packages/
