@@ -1,0 +1,13 @@
+[Unit]
+Description=Robot video control service
+Requires=
+After=network.target
+
+[Service]
+ExecStartPre=
+ExecStart=/usr/bin/python3 /home/pi/piQuadruped/run_video.py
+KillSignal=2
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
