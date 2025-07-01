@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# 1.Initialize PWM channels
+#
+# Copyright (c) 2020, Mangdang Technology Co., Limited
+#
+#
+
+# export pwm channel
+for i in $(seq 0 15)
+do
+	echo $i > /sys/class/pwm/pwmchip0/export
+	echo  4000000 > /sys/class/pwm/pwmchip0/pwm$i/period
+done
+
+# set cpu performance
+#echo performance > /sys/bus/cpu/devices/cpu0/cpufreq/scaling_governor
+
+#mpg123 /home/ubuntu/Music/power_on.mp3 &
+
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+
+#sudo ifconfig wlan0:0 10.0.0.52  netmask 255.255.255.0
+sudo ifconfig eth0:0 10.0.0.52  netmask 255.255.255.0
+
+exit 0
